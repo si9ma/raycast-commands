@@ -35,13 +35,7 @@ case "$format" in
 esac
 
 
-if echo $input | /usr/local/opt/grep/libexec/gnubin/grep -P '^[0-9]+$' > /dev/null;then
-   res=`/usr/local/opt/coreutils/libexec/gnubin/date -d @$input +"$format"`
-else
-   res=`/usr/local/opt/coreutils/libexec/gnubin/date -d "$input" +"$format"`
-fi
+res=`/usr/local/opt/coreutils/libexec/gnubin/date -d "$input" +"$format"`
 
 echo $res | pbcopy
 echo $res
-
-
